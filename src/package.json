@@ -1,0 +1,8 @@
+{
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.19.2",
+    "stockfish": "^16.0.0",
+    "stockfish.wasm": "^0.10.0"
+  }
+}
