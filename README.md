@@ -15,3 +15,4 @@ Credits to:
 - [Stockfish.wsm](https://www.npmjs.com/package/stockfish.wasm)
 - The Stockfish developers (see AUTHORS file). Stockfish [Computer software]. https://github.com/official-stockfish/Stockfish
 - [Stockfish js for understanding the flow](https://github.com/nmrugg/stockfish.js)
+- [Stockfish standalone nodejs server, I used this for some help, not really but you get the point](https://github.com/hyugit/stockfish-server)

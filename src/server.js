@@ -27,7 +27,7 @@ app.get('/stockfish', (req, res) => {
                                   return;
                               }
 
-                              // only send response when it is a recommendation
+                              
                                   if (typeof(output == "string") && output.match("bestmove")) {
                                       console.log(output);
                                       res.status(200).json({ engineOutput: output });
@@ -45,7 +45,7 @@ app.get('/stockfish', (req, res) => {
 
 app.listen(port, (err) => {
   if (err) {
-    return console.log('something bad happened', err)
+    return console.log('Error!', err)
   }
 
   console.log(`server is listening on ${port}`)
