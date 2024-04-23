@@ -17,9 +17,19 @@ Credits to:
 - [Stockfish js for understanding the flow](https://github.com/nmrugg/stockfish.js)
 - [Stockfish standalone nodejs server, I used this for some help, not really but you get the point](https://github.com/hyugit/stockfish-server)
 
-Todos
+Running it:
+- running on debug mode which runs the engine on server start 
+- ``` node server.js debug ```
+- running without debug mode
+- ``` node server.js ```
 
-- best move (works)
+
+Todos
+- best move (works) 
+- ``` GET localhost:5000/stockfish/bestmove?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
 - eval (works)
+- ``` GET localhost:5000/stockfish/eval?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
+- depthinfo (works)
+-  ``` GET localhost:5000/stockfish/depthinfo?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2&depth=20```
 - top lines (wip)
 - check mate (wip)
