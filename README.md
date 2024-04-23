@@ -20,13 +20,14 @@ Please note this is not ready to use yet.. (I mean you can) if you really want t
 - ``` node server.js ```
 
 
-## Todos
-- best move (works) 
-- ``` GET localhost:5000/stockfish/bestmove?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
-- eval (works)
-- ``` GET localhost:5000/stockfish/eval?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
-- depthinfo (works)
+## Working endpoints
+
+- **Get best move for current FEN** ``` GET localhost:5000/stockfish/bestmove?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
+- **Get eval for current FEN**  ``` GET localhost:5000/stockfish/eval?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
+- **Get depth info for current FEN** 
 -  ``` GET localhost:5000/stockfish/depthinfo?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2&depth=20```
+
+## Todos
 - top lines (wip)
 - check mate (wip)
 
