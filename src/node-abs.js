@@ -6,16 +6,16 @@ var engine = loadEngine(require("path").join("node_modules", "stockfish/src/stoc
 
 engine.send("setoption name Use NNUE value false");
 engine.send("uci");
-engine.send("position r1b1k3/ppq4r/2n1ppp1/3p4/8/1PPQP1P1/P4PP1/RN2K2R w KQq - 0 15")
-engine.send("go infinite", function onDone(data)
+engine.send("position fen r1q2rk1/2p1bpp1/3p1n1p/8/1P2b3/1B2B2P/1P1N1PP1/R2Q1RK1 w - - 0 17")
+engine.send("go depth 20", function onDone(data)
 {
+    engine.send("eval");
     console.log("DONE:", data);
     engine.quit();
 }, function onStream(data)
 {
     console.log("STREAMING:", data);
 });
-engine.send("eval")
 
 setTimeout(function ()
 {

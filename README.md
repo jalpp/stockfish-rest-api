@@ -14,15 +14,16 @@ Please note this is not ready to use yet.. (I mean you can) if you really want t
 - [Stockfish standalone nodejs server, I used this for some help, not really but you get the point](https://github.com/hyugit/stockfish-server)
 
 ## Running it:
-- running on debug mode which runs the engine on server start 
-- ``` node server.js debug ```
+- running on debug mode which runs the engine on server start by selecting engine mode (wasm or 16) 
+- ``` node server.js debug wasm```
+- - ``` node server.js debug 16```
 - running without debug mode
 - ``` node server.js ```
 
 
 ## Working endpoints
 
-- **Get best move for current FEN** ``` GET localhost:5000/stockfish/bestmove?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
+- **Get best move for current FEN (pass in engine mode [wasm, 16])** ``` GET localhost:5000/stockfish/bestmove?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
 - **Get eval for current FEN**  ``` GET localhost:5000/stockfish/eval?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
 - **Get depth info for current FEN and Depth** 
 -  ``` GET localhost:5000/stockfish/depthinfo?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2&depth=20```
