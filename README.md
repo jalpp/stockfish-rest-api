@@ -31,7 +31,7 @@ mostly used for internal software, and of course it be free if I deploy it for o
 ## Working endpoints
 
 - **Get best move for current FEN and MODE (pass in engine mode [wasm, 16])** ``` GET localhost:5000/stockfish/bestmove?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
-- **Get eval for current FEN and MODE(pass in engine mode [wasm, 16]) **  ``` GET localhost:5000/stockfish/eval?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
+- **Get eval for current FEN and MODE(pass in engine mode [wasm, 16])**  ``` GET localhost:5000/stockfish/eval?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2 ```
 - **Get top engine line and depth info for given engine MODE and DEPTH and FEN** 
 -  ``` GET localhost:5000/stockfish/toplines?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2&depth=20&mode=wasm```
 -  ``` GET localhost:5000/stockfish/toplines?fen=rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2&depth=16&mode=16```
