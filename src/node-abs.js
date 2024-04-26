@@ -7,7 +7,7 @@ var engine = loadEngine(require("path").join("node_modules", "stockfish/src/stoc
 engine.send("setoption name Use NNUE value false");
 engine.send("uci");
 engine.send("position fen r1q2rk1/2p1bpp1/3p1n1p/8/1P2b3/1B2B2P/1P1N1PP1/R2Q1RK1 w - - 0 17")
-engine.send("go depth 20", function onDone(data)
+engine.send("go infinite", function onDone(data)
 {
     engine.send("eval");
     console.log("DONE:", data);
