@@ -3,7 +3,7 @@ const app = express()
 const port = 5000
 const Stockfish = require("stockfish.wasm");
 var loadEngine = require("./load_engine.js");
-var engi = loadEngine(require("path").join("node_modules", "stockfish/src/stockfish-nnue-16.js"));
+var engi = loadEngine("./src/stockfish-nnue-16.js");
 const validateFEN = require('fen-validator');
 
 app.use(express.json())
@@ -33,9 +33,9 @@ if (process.argv[2] == "debug" && process.argv[3] == "wasm") {
     });
 
 
-} else if (process.argv[2] == "debug" && process.argv[3] == "16") {
+} else if (process.argv[2] == "debug" && process.argv[3] == "cc-nonnue") {
 
-    console.log("DEBUG_MODE: STOCKFISH 16")
+    console.log("DEBUG_MODE: CHESS COM STOCKFISH NO NNUE VERSION")
     engi.send("setoption name Use NNUE value false");
     engi.send("uci");
     engi.send("position startpos")
@@ -59,7 +59,25 @@ if (process.argv[2] == "debug" && process.argv[3] == "wasm") {
         engi.send("stop");
     }, 1000);
 
-}else{
+} else if (process.argv[2] == "debug" && process.argv[3] == "cc-yesnnue"){
+
+console.log('DEBUG_MODE: CHESS COM STOCKFISH YES NNUE VERSION')
+engi.send("setoption name Use NNUE value true");
+engi.send("uci");
+engi.send("position startpos")
+engi.send("go depth 22", function onDone(data)
+{
+    engi.send("eval");
+    console.log("DONE:", data);
+    engi.quit();
+}, function onStream(data)
+{
+    console.log("STREAMING:", data);
+});
+
+}
+
+else{
 
 console.log("Running Stockfish Rest API Server")
 
@@ -107,7 +125,7 @@ app.get('/stockfish/bestmove', (req, res) => {
        res.status(500).json({error: "API server not working!"})
       }
 
-    } else if (mode == "16") {
+    } else if (mode == "cc-nonnue") {
 
         engi.send("setoption name Use NNUE value false");
         engi.send("uci");
@@ -141,7 +159,7 @@ app.get('/stockfish/bestmove', (req, res) => {
     }else{
 
       res.status(500).json({
-                         error: "Please provide valid engine mode [wasm or 16]"
+                         error: "Please provide valid engine mode [wasm or cc-nonnue or cc-yesnnue]"
                      });
 
     }
@@ -193,7 +211,7 @@ app.get('/stockfish/eval', (req, res) => {
 
     });
 
-    }else if(mode == "16"){
+    }else if(mode == "cc-nonnue"){
 
 
         engi.send("setoption name Use NNUE value false");
@@ -228,7 +246,7 @@ app.get('/stockfish/eval', (req, res) => {
     }else{
 
            res.status(500).json({
-                              error: "Please provide valid engine mode [wasm or 16]"
+                              error: "Please provide valid engine mode [wasm or cc-nonnue or cc-yesnnue]"
                           });
 
          }
@@ -253,7 +271,7 @@ app.get('/stockfish/toplines', (req, res) => {
         }
 
 
-    if(mode == "16"){
+    if(mode == "cc-nonnue"){
 
              if(!(depth >= 1 && depth <= 16)){
 
@@ -382,7 +400,7 @@ app.get('/stockfish/toplines', (req, res) => {
     }else{
 
            res.status(500).json({
-                              error: "Please provide valid engine mode [wasm or 16]"
+                              error: "Please provide valid engine mode [wasm or cc-nonnue or cc-yesnnue]"
                           });
 
          }
