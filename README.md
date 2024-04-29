@@ -14,10 +14,11 @@ mostly used for internal software, and of course it be free if I deploy it for o
 - [fen-validator](https://www.npmjs.com/package/fen-validator/v/2.0.1) so I don't need to do all that FEN regex stuff
 
 ## Running it:
-- running on debug mode which runs the engine on server start by selecting engine mode (wasm or cc-nonnue) 
+- running on debug mode which runs the engine on server start by selecting engine mode (wasm or cc-nonnue) or run help to see server commands
 - ``` node server.js debug wasm```
 - - ``` node server.js debug cc-nonnue```
 - ``` node server.js debug cc-yesnnue ```
+- ``` node server --help ```
 - running without debug mode and starting the server
 - ``` node server.js ```
 
@@ -40,10 +41,10 @@ mostly used for internal software, and of course it be free if I deploy it for o
 
 ## TODOs
 
-- add NNUE engine type to bestmove
-- add NNUE engine type to eval
-- add NNUE engine type to lines
-- change lines to pv
+- add NNUE engine type to bestmove (fixed needs review)
+- add NNUE engine type to eval (fixed needs review)
+- add NNUE engine type to lines (buggy code)
+- change lines to pv 
 
 ## License:
 follows same as Stockfish GPL
