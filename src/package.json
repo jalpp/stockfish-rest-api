@@ -1,7 +1,7 @@
 {
   "main": "server.js",
   "dependencies": {
-    "express": "^4.20.0",
+    "express": "^4.21.0",
     "fen-validator": "^2.0.1",
     "stockfish": "^16.0.0",
     "stockfish.wasm": "^0.10.0"
